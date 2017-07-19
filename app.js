@@ -17,7 +17,8 @@ var commentRoutes    = require("./routes/comments"),
     tallyRoutes = require("./routes/tally"),
     indexRoutes      = require("./routes/index")
     
-mongoose.connect("mongodb://localhost/tally_test718");
+//mongoose.connect("mongodb://localhost/tally_test718");
+mongoose.connect("mongodb://demoDB:lamp@ds113063.mlab.com:13063/trad0719");
 app.use(bodyParser.urlencoded({extended: true}));
 app.set("view engine", "ejs");
 app.use(express.static(__dirname + "/public"));
