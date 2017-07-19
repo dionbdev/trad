@@ -1,0 +1,38 @@
+.navbar-default{
+	background-color: #d4bcbc;
+	
+
+}
+
+.navbar-brand {
+font-family: Impact, Charcoal, sans-serif;
+}
+
+.jumbotron{
+	background-color: transparent;
+}
+
+
+#landing-header {
+  z-index: 1;
+  position: relative;
+  text-align: center;
+  
+}
+
+
+.thumbnail img {
+    width: 100%;
+}
+
+.thumbnail {
+    padding: 0;
+}
+
+.thumbnail .caption-full {
+    padding: 9px;
+}
+
+#delete-form {
+    display: inline;
+}

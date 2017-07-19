@@ -1,0 +1,31 @@
+<% include ../partials/header %>
+
+<div class="row">
+    <div class="col-md-4">
+            <h1><%= user.firstName + " " + user.lastName %></h1>
+        <div class="thumbnail">
+
+            <img class="img-responsive" src="<%= user.profilePic %>">
+            
+        </div>
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Error quasi similique architecto ad modi sunt quaerat possimus, officiis quos. Voluptatibus repellendus exercitationem, id saepe sunt consectetur non quam sapiente assumenda.
+
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Error quasi similique architecto ad modi sunt quaerat possimus, officiis quos. Voluptatibus repellendus exercitationem, id saepe sunt consectetur non quam sapiente assumenda.
+    </div>
+    <div class="col-md-8">
+        <h3><%= user.username %>'s Tally:</h3>
+        <ul>
+        <% tally.forEach(function(tally) { %>
+            <li><a href="/tally/<%= tally.id %>"><%= tally.dated %></a></li>
+        <% }); %>
+        </ul>
+    </div>
+    <a class="btn btn-xs btn-warning" href="/reset">Reset Password</a>
+
+</div>
+
+
+
+
+
+<% include ../partials/footer %>
