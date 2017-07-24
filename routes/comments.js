@@ -18,7 +18,7 @@ router.get("/new",middleware.isLoggedIn, function(req, res){
 });
 
 //Comments Create
-router.post("/", middleware.isLoggedIn, function(req, res){
+router.post("/", middleware.sanitizeHtml, middleware.isLoggedIn, function(req, res){
    //lookup tally using ID
    Tally.findById(req.params.id, function(err, tally){
        if(err){
@@ -58,7 +58,7 @@ router.get("/:comment_id/edit", middleware.checkCommentOwnership, function(req, 
 });
 
 // COMMENT UPDATE
-router.put("/:comment_id", middleware.checkCommentOwnership, function(req, res){
+router.put("/:comment_id", middleware.sanitizeHtml, middleware.checkCommentOwnership, function(req, res){
    req.body.blog.body = req.sanitize(req.body.blog.body)
    Comment.findByIdAndUpdate(req.params.comment_id, req.body.comment, function(err, updatedComment){
       if(err){

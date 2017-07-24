@@ -18,7 +18,7 @@ router.get("/", function(req, res){
 });
 
 //CREATE - add new tally to DB
-router.post("/", middleware.isLoggedIn,  function(req, res){
+router.post("/", middleware.sanitizeHtml, middleware.isLoggedIn,  function(req, res){
     // get data from form and add to tally array
     var exercise = req.body.exercise;
     var weight = req.body.weight;
@@ -72,7 +72,7 @@ router.get("/:id/edit", middleware.checkTallyOwnership, function(req, res){
 });
 
 // UPDATE tally ROUTE
-router.put("/:id", middleware.checkTallyOwnership, function(req, res){
+router.put("/:id", middleware.sanitizeHtml, middleware.checkTallyOwnership, function(req, res){
     // find and update the correct tally
     Tally.findByIdAndUpdate(req.params.id, req.body.tally, function(err, updatedTally){
        if(err){

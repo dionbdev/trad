@@ -56,20 +56,14 @@ middlewareObj.isLoggedIn = function(req, res, next){
     res.redirect("/login");
 }
 
-// middlewareObj.cleanHtml = function(req, res, next){
-//     Object.keys(req.body).forEach(function(key){
-//         req.body[key] = req.sanitize(req.body[key]);
-//     });
-// }
-
-// middlewareObj.sanitizeHtml = function(req,res,next) {
-//     for(var key in req.body) {
-//         if(req.body[key]) {
-//             req.body[key] = req.sanitize(req.body[key]);
-//         }
-//     }
-//     return next(); 
-// };
+middlewareObj.sanitizeHtml = function(req,res,next) {
+    for(var key in req.body) {
+        if(req.body.key) {
+            req.body.key = req.sanitize(req.body.key);
+        }
+    }
+    return next(); 
+};
 
 
 

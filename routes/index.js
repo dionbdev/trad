@@ -19,7 +19,7 @@ router.get("/register", function(req, res){
 });
 
 //Create sign up logic
-router.post("/register", function(req, res){
+router.post("/register", middleware.sanitizeHtml, function(req, res){
     var newUser = new User({
       username:   req.body.username, 
       firstName:  req.body.firstName,
@@ -45,7 +45,7 @@ router.get("/login",  function(req, res){
 });
 
 //handling login logic
-router.post("/login", passport.authenticate("local", 
+router.post("/login", middleware.sanitizeHtml, passport.authenticate("local", 
     {
         
         successRedirect: "/tally",
@@ -85,7 +85,7 @@ router.get("/forgot", function(req, res){
   res.render('forgot');
 });
 
-router.post('/forgot', function(req, res, next) {
+router.post('/forgot', middleware.sanitizeHtml, function(req, res, next) {
   async.waterfall([
     function(done) {
       crypto.randomBytes(20, function(err, buf) {
@@ -150,7 +150,7 @@ router.get('/reset/:token', function(req, res) {
   });
 });
 
-router.post('/reset/:token', function(req, res) {
+router.post('/reset/:token', middleware.sanitizeHtml, function(req, res) {
   async.waterfall([
     function(done) {
       User.findOne({ resetPasswordToken: req.params.token, resetPasswordExpires: { $gt: Date.now() } }, function(err, user) {
