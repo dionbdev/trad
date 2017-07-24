@@ -1,12 +1,37 @@
 <% include ./partials/header %> 
 
-<h1>Login!</h1>
-<form action="/login" method="POST">
-    <input type="text" name="username" placeholder="username">
-    <input type="password" name="password" placeholder="password">
-    <input type="submit" value="Login!">
-</form>
-<a class="btn btn-xs btn-warning" href="/forgot">Forgot Password</a>
+<h1>Login</h1>
+
+
+<section id="cover">
+        <div id="cover-caption">
+            <div class="container">
+                <div class="col-sm-10 col-sm-offset-1">
+                    <h1 class="display-3">Returning Users</h1>
+                    <p>Sign in to view your fitness logs</p>
+                    
+                    
+                    <form action="/login" method="POST" class="form-inline">
+    					<input type="text" class="form-control form-control-lg" name="username" placeholder="username">
+    					<input type="password" class="form-control form-control-lg" name="password" placeholder="password" >
+   						<button type="submit" class="btn-lg" value="Login!">Login</button>
+					</form>
+
+					<br/>
+					<a class="btn btn-xs btn-warning" href="/forgot">Forgot Password</a>
+
+                    
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+
+
+
+
 
 
 <% include ./partials/footer %> 
