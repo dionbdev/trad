@@ -27,6 +27,7 @@ font-family: Impact, Charcoal, sans-serif;
 
 .thumbnail {
     padding: 0;
+    height: auto;
 }
 
 .thumbnail .caption-full {

@@ -16,7 +16,7 @@
         <h3><%= user.username %>'s Tally:</h3>
         <ul>
         <% tally.forEach(function(tally) { %>
-            <li><a href="/tally/<%= tally.id %>"><%= tally.dated %></a></li>
+            <li><a href="/tally/<%= tally.id %>"><%= moment(tally.dated).format('lll') %></a></li>
         <% }); %>
         </ul>
     </div>
